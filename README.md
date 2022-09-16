@@ -1,3 +1,3 @@
-## Video Library Backend
+## GeoFlix
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+Are you interested in geo-political events happening in the world? Do you like to know more about significance of Strategic groupings between countries and latest happenings? GeoFlix is for you! It is the video library that will provide comprehensive coverage to all geopolitical events!

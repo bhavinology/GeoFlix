@@ -15,7 +15,6 @@
 
 .brand {
   display: flex;
-  align-items: flex-end;
   column-gap: 5px;
 }
 .logo-container {
@@ -56,7 +55,6 @@
 
 .search-icon {
   align-self: center;
-  /* display: inline-flex; */
   cursor: pointer;
   height: 1.3rem;
 }

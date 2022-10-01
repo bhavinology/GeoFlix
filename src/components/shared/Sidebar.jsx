@@ -76,30 +76,20 @@ function Sidebar() {
       </aside>
       <div className="mobile-bottom-nav">
         <Link to="/videos" className="mobile-nav-item">
-          <div className="mobile-nav-item">
-            <FontAwesomeIcon icon="compass" className="bottom-icon" />
-            <span>Explore</span>
-          </div>
+          <FontAwesomeIcon icon="compass" className="bottom-icon" />
+          <span>Explore</span>
         </Link>
         <Link to="/playlists" className="mobile-nav-item">
-          <div className="mobile-nav-item">
-            <FontAwesomeIcon icon="clapperboard" className="bottom-icon" />
-            <span>Playlists</span>
-          </div>
+          <FontAwesomeIcon icon="clapperboard" className="bottom-icon" />
+          <span>Playlists</span>
         </Link>
         <Link to="/uploadvideo" className="mobile-nav-item">
-          <div className="mobile-nav-item">
-            <div className="mobile-nav-item">
-              <FontAwesomeIcon icon="upload" className="bottom-icon" />
-              <span>Upload Video</span>
-            </div>
-          </div>
+          <FontAwesomeIcon icon="upload" className="bottom-icon" />
+          <span>Upload Video</span>
         </Link>
         <Link to="/profile" className="mobile-nav-item">
-          <div className="mobile-nav-item">
-            <FontAwesomeIcon icon="user" className="bottom-icon" />
-            <span>Profile</span>
-          </div>
+          <FontAwesomeIcon icon="user" className="bottom-icon" />
+          <span>Profile</span>
         </Link>
       </div>
     </>

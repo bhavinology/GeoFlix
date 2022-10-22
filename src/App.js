@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      <div className="middle-content"></div>
     </div>
   );
 }

@@ -10,5 +10,7 @@ export const reducer = (state, action) => {
         ...state,
         categories: action.payload.categories,
       };
+    default:
+      return null;
   }
 };

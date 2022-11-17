@@ -17,7 +17,7 @@ function Videos() {
                   ? "active-category"
                   : null
               }`}
-              key={category.id}
+              key={category._id}
             >
               {category.categoryName}
             </span>

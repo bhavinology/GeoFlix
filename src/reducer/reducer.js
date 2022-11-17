@@ -11,6 +11,6 @@ export const reducer = (state, action) => {
         categories: action.payload.categories,
       };
     default:
-      return null;
+      throw new Error(`Unknown action type: ${action.type}`);
   }
 };

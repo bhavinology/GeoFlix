@@ -10,7 +10,7 @@
   height: 2rem;
   padding: 1rem;
   cursor: pointer;
-  letter-spacing: 0.5x;
+  letter-spacing: 0.5px;
 }
 
 .active-category {
@@ -73,5 +73,6 @@
 
   .categories {
     margin-left: 1rem;
+    overflow-x: scroll;
   }
 }

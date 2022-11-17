@@ -4,6 +4,7 @@ import Navigation from "./components/shared/Navigation";
 import Videos from "./components/videolisting/Videos";
 // import { DataProvider } from "./contexts";
 import { Sidebar } from "./components/shared/Sidebar.jsx";
+import Footer from "./components/shared/Footer";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -16,6 +17,7 @@ function App() {
         <Sidebar />
         <Videos />
       </div>
+      <Footer />
     </div>
   );
 }

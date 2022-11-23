@@ -12,5 +12,6 @@ export const reducer = (state, action) => {
       };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
+    // ref: devtrium useReducer blog
   }
 };

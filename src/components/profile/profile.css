@@ -1,0 +1,20 @@
+.logout-container {
+  margin: 1rem;
+  margin-left: 15rem;
+  margin-top: 7rem;
+  height: fit-content;
+  max-width: 25rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.profile-detail {
+  column-gap: 2rem;
+}
+.profile-column {
+  align-items: flex-start;
+  row-gap: 1rem;
+}
+.logout-btn {
+  margin: 5px auto;
+}

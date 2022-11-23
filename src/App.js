@@ -1,10 +1,11 @@
 import "./App.css";
-// import { VideoListingPage } from "./components/pages/videoListing";
 import Navigation from "./components/shared/Navigation";
 import Videos from "./components/videolisting/Videos";
-// import { DataProvider } from "./contexts";
 import { Sidebar } from "./components/shared/Sidebar.jsx";
 import Footer from "./components/shared/Footer";
+import LoginForm from "./components/authentication/LoginForm";
+import SignupForm from "./components/authentication/SignupForm";
+import ProfileDetail from "./components/profile/ProfileDetail";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -15,7 +16,10 @@ function App() {
       <Navigation />
       <div className="middle-content">
         <Sidebar />
-        <Videos />
+        {/* <Videos /> */}
+        {/* <LoginForm /> */}
+        {/* <SignupForm /> */}
+        <ProfileDetail />
       </div>
       <Footer />
     </div>

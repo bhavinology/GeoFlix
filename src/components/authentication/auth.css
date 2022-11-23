@@ -1,0 +1,100 @@
+.auth-container,
+.logout-container {
+  margin: 1rem;
+  margin-left: 14rem;
+  row-gap: 0.5rem;
+}
+
+.form-auth {
+  width: 25rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  color: #646464;
+}
+
+.form-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1rem;
+}
+
+.input-lable {
+  width: 30%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input-primary {
+  width: 65%;
+  font-size: 13px;
+  display: block;
+  background-color: transparent;
+}
+.input-no-outline {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  position: absolute;
+  bottom: 7px;
+}
+
+.heading4 {
+  padding-top: 1rem;
+}
+
+.btn-auth {
+  width: 100%;
+  margin: unset;
+  font-weight: 600;
+  background-color: red;
+  letter-spacing: 0.5px;
+}
+
+.guest-button {
+  margin: 1rem 0;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.btn-outline-primary {
+  border: 1px solid red;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: red;
+  font-weight: 600;
+}
+
+.input-icon-style {
+  color: red;
+  font-size: 1rem;
+  position: absolute;
+  right: 5px;
+  top: 6px;
+}
+.input-icon-container {
+  position: relative;
+}
+
+.error-login {
+  display: flex;
+  justify-content: center;
+  color: var(--error-color);
+}
+
+.error-login > div {
+  font-size: 14px;
+}
+.error-icon {
+  padding-right: 5px;
+}
+.margin-top-5 {
+  margin-top: 5px;
+}

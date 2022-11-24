@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLoginHandler } from "../../hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./auth.css";
 import { Link, useLocation } from "react-router-dom";
@@ -7,8 +8,9 @@ function LoginForm() {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [errorData, setErrorData] = useState(false);
   const [showpassword, setShowPassword] = useState(false);
-  // const [disableLogin, setDisableLogin] = useState(false);
-  // const { location } = useLocation();
+  const [disableLogin, setDisableLogin] = useState(false);
+  const { location } = useLocation();
+  const { loginHandler } = useLoginHandler();
 
   return (
     <div className="auth-container flex-column-center">
@@ -56,7 +58,7 @@ function LoginForm() {
             <button
               className="btn-no-decoration cursor-pointer text-white"
               type="button"
-              // disabled={disableLogin}
+              disabled={disableLogin}
               onClick={() => setShowPassword(!showpassword)}
             >
               <FontAwesomeIcon
@@ -66,10 +68,35 @@ function LoginForm() {
             </button>
           </div>
         </div>
-        <button className="btn btn-primary btn-auth">Login</button>
+        <button
+          className="btn btn-primary btn-auth"
+          disabled={disableLogin}
+          onClick={(e) =>
+            loginHandler(
+              e,
+              loginData,
+              setLoginData,
+              setErrorData,
+              setDisableLogin,
+              location
+            )
+          }
+        >
+          Login
+        </button>
         <button
           className="btn btn-outline-primary btn-auth guest-button"
-          // disabled={disableLogin}
+          disabled={disableLogin}
+          onClick={(e) =>
+            loginHandler(
+              e,
+              null,
+              setLoginData,
+              setErrorData,
+              setDisableLogin,
+              location
+            )
+          }
         >
           Login as Guest
         </button>

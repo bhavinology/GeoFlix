@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     const localStorageAuth = localStorage.getItem("authToken");
     if (localStorageAuth) {
       setAuthToken(localStorageAuth);
-      setAuthUser(localStorageAuth.getItem("authUser"));
+      setAuthUser(localStorage.getItem("authUser"));
     }
   }, []);
 

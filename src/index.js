@@ -4,18 +4,20 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./assets"; //to display icons of fontawesome
-import { DataProvider } from "./contexts";
+import { AuthProvider, DataProvider } from "./contexts";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <DataProvider>
-      <Router>
-        <App />
-      </Router>
-    </DataProvider>
+    <AuthProvider>
+      <DataProvider>
+        <Router>
+          <App />
+        </Router>
+      </DataProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

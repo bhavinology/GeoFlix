@@ -82,7 +82,14 @@
 .input-icon-container {
   position: relative;
 }
-
+.error {
+  color: var(--error-color);
+  display: flex;
+  font-size: 12px;
+  justify-content: flex-start;
+  padding: unset;
+  margin-left: 35%;
+}
 .error-login {
   display: flex;
   justify-content: center;
@@ -97,4 +104,22 @@
 }
 .margin-top-5 {
   margin-top: 5px;
+}
+@media only screen and (max-width: 640px) {
+  .auth-container,
+  .logout-container {
+    padding: 1rem;
+    margin-left: unset;
+    overflow-x: hidden;
+  }
+  .form-auth {
+    width: 100%;
+  }
+  .input-label {
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .error > div {
+    font-size: 12px;
+  }
 }

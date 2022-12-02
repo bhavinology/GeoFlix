@@ -17,12 +17,13 @@ const postLoginData = async (email, password) => {
   }
 };
 
-const postSignupData = async (formData, navigate) => {
+const postSignupData = async (formData) => {
   try {
     const response = await axios.post("/api/auth/signup", formData);
     if (response.status === 201) {
       toast.success("Signed up Successfully");
-      navigate("/login");
+
+      return response.data;
     } else throw new Error();
   } catch (e) {
     toast.error(`Couldn't sign up.Please try again`);

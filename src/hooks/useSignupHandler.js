@@ -1,8 +1,10 @@
 import { useReducer } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { postSignupData } from "../services";
+import { useLoginHandler } from "./useLoginHandler";
 
 function useSignupHandler() {
+  const { loginHandler } = useLoginHandler();
   const navigate = useNavigate();
   const initialFormState = {
     firstName: "",
@@ -48,6 +50,8 @@ function useSignupHandler() {
           ...state,
           confirmPassword: action.payload,
         };
+      default:
+        throw new Error(`unknown action type ${action.type}`);
     }
   };
 
@@ -80,6 +84,8 @@ function useSignupHandler() {
           ...state,
           confirmPassword: action.payload,
         };
+      default:
+        throw new Error(`unknown action type ${action.type}`);
     }
   };
 
@@ -140,10 +146,28 @@ function useSignupHandler() {
     return signupFlag;
   };
 
-  const signupHandler = async (e) => {
+  const signupHandler = async (e, location, setDisableSignup) => {
     e.preventDefault();
-    if (checkValidation()) {
-      const response = await postSignupData(formData, navigate);
+    setDisableSignup(true);
+    try {
+      if (checkValidation()) {
+        const response = await postSignupData(formData);
+        loginHandler(
+          e,
+          {
+            email: formData.email,
+            password: formData.password,
+          },
+          null,
+          null,
+          null,
+          location
+        );
+      }
+    } catch (e) {
+      console.log("error in signupHandler", e);
+    } finally {
+      setDisableSignup(false);
     }
   };
 

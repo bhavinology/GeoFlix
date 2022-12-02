@@ -15,7 +15,7 @@ function useLoginHandler() {
     location
   ) => {
     if (setDisableLogin) setDisableLogin(true);
-    e.preventDefault();
+    if (e) e.preventDefault();
     try {
       let response;
       if (e.target.innerText === "Login as Guest") {
@@ -35,6 +35,7 @@ function useLoginHandler() {
       setAuthUser(userResponse);
       localStorage.setItem("authToken", tokenResponse);
       localStorage.setItem("authUser", JSON.stringify(userResponse));
+
       // if (location.state) navigate(location.state?.from?.pathname);
       navigate("/videos");
     } catch (e) {

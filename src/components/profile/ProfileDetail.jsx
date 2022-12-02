@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts";
 import "./profile.css";
@@ -7,9 +6,7 @@ import "./profile.css";
 function ProfileDetail() {
   const { setAuthToken, authUser, setAuthUser } = useAuth();
   const navigate = useNavigate();
-  useEffect(() => {
-    if (localStorage.authUser) setAuthUser(JSON.parse(localStorage.authUser));
-  }, []);
+
   function logoutHandler() {
     localStorage.removeItem("authToken");
     localStorage.removeItem("authUser");

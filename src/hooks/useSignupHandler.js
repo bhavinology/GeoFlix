@@ -1,11 +1,9 @@
 import { useReducer } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
 import { postSignupData } from "../services";
 import { useLoginHandler } from "./useLoginHandler";
 
 function useSignupHandler() {
   const { loginHandler } = useLoginHandler();
-  const navigate = useNavigate();
   const initialFormState = {
     firstName: "",
     lastName: "",
@@ -153,7 +151,7 @@ function useSignupHandler() {
       if (checkValidation()) {
         const response = await postSignupData(formData);
         loginHandler(
-          e,
+          null,
           {
             email: formData.email,
             password: formData.password,

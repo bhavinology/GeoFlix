@@ -6,6 +6,16 @@ import "./videos.css";
 
 function Videos() {
   const { state, dispatch } = useData();
+  const dispatchHandler = (category) => {
+    dispatch({ type: "CATEGORY", payload: { category: category } });
+  };
+  function getFilteredVideos() {
+    if (state.category === "All") return state.videos;
+    else
+      return state.videos.filter(
+        (perVideo) => perVideo.category === state.category
+      );
+  }
   return (
     <>
       <div>
@@ -18,6 +28,7 @@ function Videos() {
                   : null
               }`}
               key={category._id}
+              onClick={() => dispatchHandler(category.categoryName)}
             >
               {category.categoryName}
             </span>
@@ -26,7 +37,7 @@ function Videos() {
       </div>
       <div className="flex-row-center">
         <div className="videos-container">
-          {state.videos.map((video) => (
+          {getFilteredVideos().map((video) => (
             <VideoCard video={video} key={video._id} />
           ))}
         </div>

@@ -7,14 +7,20 @@ import LoginForm from "./components/authentication/LoginForm";
 import SignupForm from "./components/authentication/SignupForm";
 import ProfileDetail from "./components/profile/ProfileDetail";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import { useAuth } from "./contexts";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
 
 function App() {
+  const { authToken } = useAuth();
+
   return (
     <div className="App pagewrapper">
       <Navigation />
+      <ToastContainer theme="dark" position="bottom-right" autoClose={3000} />
       <div className="middle-content">
         <Sidebar />
 
@@ -23,6 +29,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/account" element={<ProfileDetail />} />
+          {authToken && <Route path="/profile" element={<ProfileDetail />} />}
         </Routes>
       </div>
       <Footer />

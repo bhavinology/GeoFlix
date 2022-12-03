@@ -1,9 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { useAuth } from "../../contexts";
 import "./nav.css";
 
 function Navigation() {
+  const navigate = useNavigate();
+  const { authToken } = useAuth();
   return (
     <nav className="nav-container">
       <div className="brand">
@@ -30,7 +33,12 @@ function Navigation() {
         <button className="btn-no-decoration curser-pointer text-white">
           <FontAwesomeIcon icon="moon" className="search-icon" />
         </button>
-        <div className="profile-icon">
+        <div
+          className="profile-icon"
+          onClick={() =>
+            authToken ? navigate("/profile") : navigate("/login")
+          }
+        >
           <FontAwesomeIcon icon="user" className="search-icon" />
         </div>
       </div>

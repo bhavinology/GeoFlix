@@ -18,7 +18,7 @@ function useLoginHandler() {
     if (e) e.preventDefault();
     try {
       let response;
-      if (e.target.innerText === "Login as Guest") {
+      if (e && e.target.innerText === "Login as Guest") {
         setLogindata({
           email: "adarshbalika@gmail.com",
           password: "adarshBalika123",

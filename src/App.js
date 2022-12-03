@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App pagewrapper">
       <Navigation />
-      <ToastContainer theme="dark" position="bottom-right" autoClose={3000} />
+      <ToastContainer theme="dark" position="bottom-right" autoClose={500} />
       <div className="middle-content">
         <Sidebar />
 

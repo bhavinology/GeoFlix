@@ -10,6 +10,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { useAuth } from "./contexts";
+import Playlists from "./components/playlists/Playlists";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/account" element={<ProfileDetail />} />
+          <Route path="/playlists" element={<Playlists />} />
           {authToken && <Route path="/profile" element={<ProfileDetail />} />}
         </Routes>
       </div>

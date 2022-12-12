@@ -15,6 +15,11 @@ export const reducer = (state, action) => {
         ...state,
         category: action.payload.category,
       };
+    case "SET_PLAYLISTS":
+      return {
+        ...state,
+        playlists: action.payload.playlists,
+      };
 
     default:
       return state;

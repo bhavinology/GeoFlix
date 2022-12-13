@@ -1,4 +1,10 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 import { reducer } from "../reducer/index";
 import { getVideos, getCategories } from "../services/dataService";
 
@@ -6,11 +12,14 @@ const initialState = {
   videos: [],
   categories: [],
   category: "All",
+  playlists: [],
 };
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [playlistModal, setPlaylistModal] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState({});
 
   useEffect(() => {
     async function fetchData() {
@@ -29,7 +38,16 @@ const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider
+      value={{
+        state,
+        dispatch,
+        playlistModal,
+        setPlaylistModal,
+        currentVideo,
+        setCurrentVideo,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

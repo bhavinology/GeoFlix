@@ -62,7 +62,10 @@
   position: absolute;
   bottom: 0;
 }
-
+.options-icon {
+  font-size: 1.5rem;
+  padding: 0 10px;
+}
 @media only screen and (max-width: 640px) {
   .videos-container {
     display: flex;

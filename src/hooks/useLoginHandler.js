@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts";
+import { useAuth, useData } from "../contexts";
 import { postLoginData } from "../services";
 
 function useLoginHandler() {
   const { setAuthToken, setAuthUser } = useAuth();
   const navigate = useNavigate();
+  const { dispatch } = useData();
 
   const loginHandler = async (
     e,
@@ -35,6 +36,10 @@ function useLoginHandler() {
       setAuthUser(userResponse);
       localStorage.setItem("authToken", tokenResponse);
       localStorage.setItem("authUser", JSON.stringify(userResponse));
+      dispatch({
+        type: "SET_PLAYLISTS",
+        payload: { playlists: response.playlists },
+      });
 
       // if (location.state) navigate(location.state?.from?.pathname);
       navigate("/videos");

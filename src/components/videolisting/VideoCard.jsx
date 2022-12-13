@@ -6,7 +6,7 @@ import "./videos.css";
 
 function VideoCard({ video }) {
   const { setPlaylistModal, setCurrentVideo } = useData();
-  const location = useLocation;
+  const location = useLocation();
   const [ellipsisIcon, setEllipsisIcon] = useState(false);
 
   useEffect(() => {

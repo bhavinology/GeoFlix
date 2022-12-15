@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth, useData } from "../contexts";
-import { postLoginData } from "../services";
+import { getAllPlaylistsFromServer, postLoginData } from "../services";
 
 function useLoginHandler() {
   const { setAuthToken, setAuthUser } = useAuth();
@@ -36,6 +36,7 @@ function useLoginHandler() {
       setAuthUser(userResponse);
       localStorage.setItem("authToken", tokenResponse);
       localStorage.setItem("authUser", JSON.stringify(userResponse));
+      response = await getAllPlaylistsFromServer(tokenResponse);
       dispatch({
         type: "SET_PLAYLISTS",
         payload: { playlists: response.playlists },

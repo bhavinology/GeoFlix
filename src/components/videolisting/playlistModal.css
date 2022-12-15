@@ -62,7 +62,7 @@
   padding-right: 5px;
 }
 
-.checkbox-lable {
+.checkbox-label {
   cursor: pointer;
   padding-left: 10px;
 }
@@ -87,7 +87,12 @@
 .disabled-cursor {
   cursor: not-allowed;
 }
+
 input[type="checkbox"],
 .checkbox-label {
   cursor: pointer;
+}
+
+.create-playlist {
+  padding-top: 10px;
 }

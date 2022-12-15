@@ -76,7 +76,7 @@ function PlaylistModal() {
           {watchLaterOption && (
             <>
               <input id="watchLater" type="checkbox" className="p-right-5" />
-              <label htmlFor="watchLater" className="checkbox-lable">
+              <label htmlFor="watchLater" className="checkbox-label">
                 Watch Later
               </label>
             </>
@@ -92,52 +92,55 @@ function PlaylistModal() {
                 disabled={disableCheckbox}
                 onChange={(e) => videoInPlaylistHandler(e, playlist)}
               />
+              <label htmlFor={playlist._id} className="checkbox-label">
+                {playlist.name}{" "}
+              </label>
             </div>
           ))}
-
-          {newPlaylist ? (
-            <form onSubmit={(e) => createPlaylistHandler(e)}>
-              <div className="new-playlist-container">
-                <label htmlFor="new-playlist-name">Name</label>
-                <input
-                  type="text"
-                  id="new-playlist-name"
-                  className="input-primary input-full-width"
-                  placeholder="Enter Playlist name"
-                  onChange={(e) => setPlaylistName(e.target.value.trim())}
-                />
-                <button
-                  type="submit"
-                  className={`btn btn-primary btn-dark-theme ${
-                    playlistName === "" ? "disabled-cursor" : ""
-                  }`}
-                  disabled={playlistName === "" || disableCreate}
-                >
-                  Create
-                </button>
-              </div>
-            </form>
-          ) : (
-            <div
-              className="playlist create-playlist"
-              onClick={() => {
-                if (authToken) {
-                  setNewPlaylist(true);
-                } else {
-                  setPlaylistModal(false);
-                  navigate("/login");
-                }
-              }}
-            >
-              <span className="p-right-5">
-                <FontAwesomeIcon icon="plus" />
-              </span>
-              Create Playlist
-            </div>
-          )}
-
-          {/* End */}
         </div>
+
+        {newPlaylist ? (
+          <form onSubmit={(e) => createPlaylistHandler(e)}>
+            <div className="new-playlist-container">
+              <label htmlFor="new-playlist-name">Name</label>
+              <input
+                type="text"
+                id="new-playlist-name"
+                className="input-primary input-full-width"
+                placeholder="Enter Playlist name"
+                onChange={(e) => setPlaylistName(e.target.value.trim())}
+              />
+              <button
+                type="submit"
+                className={`btn btn-primary btn-dark-theme ${
+                  playlistName === "" ? "disabled-cursor" : ""
+                }`}
+                disabled={playlistName === "" || disableCreate}
+              >
+                Create
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div
+            className="playlist create-playlist"
+            onClick={() => {
+              if (authToken) {
+                setNewPlaylist(true);
+              } else {
+                setPlaylistModal(false);
+                navigate("/login");
+              }
+            }}
+          >
+            <span className="p-right-5">
+              <FontAwesomeIcon icon="plus" />
+            </span>
+            Create Playlist
+          </div>
+        )}
+
+        {/* End */}
       </div>
     </div>
   );

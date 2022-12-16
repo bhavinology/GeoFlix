@@ -33,6 +33,7 @@ function App() {
           <Route path="/videos" element={<Videos />} />
           <Route path="/account" element={<ProfileDetail />} />
           <Route path="/playlists" element={<Playlists />} />
+          <Route path="/playlists/:playlistId" element={<SinlePlaylist />} />
           {authToken && <Route path="/profile" element={<ProfileDetail />} />}
         </Routes>
       </div>

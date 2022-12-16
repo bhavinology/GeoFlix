@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { useAuth } from "./contexts";
 import Playlists from "./components/playlists/Playlists";
+import PlaylistModal from "./components/videolisting/PlaylistModal";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App pagewrapper">
       <Navigation />
+      <PlaylistModal />
       <ToastContainer theme="dark" position="bottom-right" autoClose={500} />
       <div className="middle-content">
         <Sidebar />

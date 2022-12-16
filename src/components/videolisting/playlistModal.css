@@ -102,3 +102,9 @@ input[type="checkbox"],
   background-color: red;
   color: white;
 }
+
+@media only screen and (max-width: 640px) {
+  /* .modal-wrapper {
+    margin: 0 auto;
+  } */
+}

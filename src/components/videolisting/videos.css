@@ -41,6 +41,7 @@
 .video-img-container {
   height: 65%;
   width: 100%;
+  position: relative;
 }
 .video-thumbnail {
   height: 100%;

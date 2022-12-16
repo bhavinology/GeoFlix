@@ -1,3 +1,5 @@
+/* Styles for Playlists */
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -13,3 +15,38 @@
 .large-font-size {
   font-size: 1.2rem;
 }
+
+.playlist-card {
+  height: 14rem;
+}
+
+.no-link-decoration {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.video-count-container {
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  opacity: 0.85;
+}
+
+.playlist-title {
+  align-items: center;
+  height: 35%;
+}
+
+.error-color {
+  color: var(--error-color);
+}
+
+/* Styles for Single Playlist */

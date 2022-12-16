@@ -25,6 +25,7 @@
   width: 20rem;
   min-width: 10rem;
   max-height: 20rem;
+  padding: 1rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -95,4 +96,9 @@ input[type="checkbox"],
 
 .create-playlist {
   padding-top: 10px;
+}
+
+.btn-color {
+  background-color: red;
+  color: white;
 }

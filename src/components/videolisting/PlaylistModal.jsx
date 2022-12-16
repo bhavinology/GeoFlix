@@ -112,7 +112,7 @@ function PlaylistModal() {
               />
               <button
                 type="submit"
-                className={`btn btn-primary btn-dark-theme ${
+                className={`btn btn-primary btn-dark-theme btn-color ${
                   playlistName === "" ? "disabled-cursor" : ""
                 }`}
                 disabled={playlistName === "" || disableCreate}

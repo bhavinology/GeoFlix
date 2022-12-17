@@ -13,6 +13,7 @@ import { useAuth } from "./contexts";
 import Playlists from "./components/playlists/Playlists";
 import PlaylistModal from "./components/videolisting/PlaylistModal";
 import SinglePlaylist from "./components/playlists/SinglePlaylist";
+import WatchLater from "./components/watchlater/WatchLater";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/videos" element={<Videos />} />
           <Route path="/account" element={<ProfileDetail />} />
           <Route path="/playlists" element={<Playlists />} />
+          <Route path="/watchlater" element={<WatchLater />} />
           <Route path="/playlists/:playlistId" element={<SinglePlaylist />} />
           {authToken && <Route path="/profile" element={<ProfileDetail />} />}
         </Routes>

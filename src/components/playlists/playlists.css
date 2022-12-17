@@ -50,3 +50,26 @@
 }
 
 /* Styles for Single Playlist */
+
+.margin-container {
+  margin: 0.5rem 1rem 0.5rem 17rem;
+}
+.no-playlist-container {
+  margin-top: 6%;
+}
+.inline-flex-center {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-primary {
+  background-color: red;
+  color: var(--bg-color);
+  font-weight: 700;
+}
+/* styles for common video card */
+
+.delete-icon {
+  color: var(--error-color);
+  cursor: pointer;
+}

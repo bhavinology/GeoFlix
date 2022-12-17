@@ -74,3 +74,11 @@
   color: var(--error-color);
   cursor: pointer;
 }
+
+/* Media queries */
+@media only screen and (max-width: 640px) {
+  .flex-column-start,
+  .margin-container {
+    margin-left: 1rem;
+  }
+}

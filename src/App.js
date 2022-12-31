@@ -15,6 +15,8 @@ import PlaylistModal from "./components/videolisting/PlaylistModal";
 import SinglePlaylist from "./components/playlists/SinglePlaylist";
 import WatchLater from "./components/watchlater/WatchLater";
 import LikedVideos from "./components/likedvideos/LikedVideos";
+import { PrivateRoute } from "./components/authentication/PrivateRoutes";
+import History from "./components/history/History";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -34,12 +36,54 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/videos" element={<Videos />} />
-          <Route path="/account" element={<ProfileDetail />} />
-          <Route path="/playlists" element={<Playlists />} />
-          <Route path="/watchlater" element={<WatchLater />} />
-          <Route path="/liked" element={<LikedVideos />} />
-          <Route path="/playlists/:playlistId" element={<SinglePlaylist />} />
-          {authToken && <Route path="/profile" element={<ProfileDetail />} />}
+          <Route
+            path="/account"
+            element={
+              <PrivateRoute>
+                <ProfileDetail />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/playlists"
+            element={
+              <PrivateRoute>
+                <Playlists />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/playlists/:playlistId"
+            element={
+              <PrivateRoute>
+                <SinglePlaylist />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <PrivateRoute>
+                <History />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/liked"
+            element={
+              <PrivateRoute>
+                <LikedVideos />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/watchlater"
+            element={
+              <PrivateRoute>
+                <WatchLater />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </div>
       <Footer />

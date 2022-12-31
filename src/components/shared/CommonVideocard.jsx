@@ -1,15 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { usePlaylistOperations } from "../../hooks/index";
+import { usePlaylistOperations, useVideoOperations } from "../../hooks/index";
 import "../../components/playlists/playlists.css";
 import { useState } from "react";
 
 function CommonVideocard({ video, playlistCategory, uploaded }) {
   const { removeVideoFromPlaylist } = usePlaylistOperations();
+  const {
+    deleteVideoFromHistory,
+    deleteVideoFromLikedVideos,
+    deleteVideoFromWatchLaterVideos,
+  } = useVideoOperations();
   const [disable, setDisable] = useState(false);
 
   const onClickDeleteHandler = (e) => {
-    removeVideoFromPlaylist(e, playlistCategory, setDisable, video._id);
+    if (playlistCategory === "likedVideo")
+      deleteVideoFromLikedVideos(e, video._id, setDisable);
+    else if (playlistCategory === "watchHistory")
+      deleteVideoFromHistory(e, video._id, setDisable);
+    else if (playlistCategory === "watchLater")
+      deleteVideoFromWatchLaterVideos(e, video._id);
+    else removeVideoFromPlaylist(e, playlistCategory, setDisable, video._id);
   };
   return (
     <div className="video-card playlist-card">

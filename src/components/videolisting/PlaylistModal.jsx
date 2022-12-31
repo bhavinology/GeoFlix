@@ -1,6 +1,6 @@
 import "./playlistModal.css";
 import { useData, useAuth } from "../../contexts/index";
-import { usePlaylistOperations } from "../../hooks/index";
+import { usePlaylistOperations, useVideoOperations } from "../../hooks/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,10 +12,16 @@ function PlaylistModal() {
   const { state, playlistModal, setPlaylistModal, currentVideo } = useData();
   const { addPlaylist, addVideoToPlaylist, removeVideoFromPlaylist } =
     usePlaylistOperations();
+  const {
+    inWatchLater,
+    addVideoToWatchLaterVideos,
+    deleteVideoFromWatchLaterVideos,
+  } = useVideoOperations();
 
   const [newPlaylist, setNewPlaylist] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
   const [watchLaterOption, setWatchLaterOption] = useState(false);
+  const [disableWatchLater, setDisableWatchLater] = useState(false);
   const [disableCheckbox, setDisableCheckbox] = useState(false);
   const [disableCreate, setDisableCreate] = useState(false);
   const location = useLocation();
@@ -75,7 +81,26 @@ function PlaylistModal() {
         <div className="playlists-container">
           {watchLaterOption && (
             <>
-              <input id="watchLater" type="checkbox" className="p-right-5" />
+              <input
+                id="watchLater"
+                type="checkbox"
+                className="p-right-5"
+                checked={inWatchLater(currentVideo._id)}
+                disabled={disableWatchLater}
+                onChange={(e) =>
+                  inWatchLater(currentVideo._id)
+                    ? deleteVideoFromWatchLaterVideos(
+                        e,
+                        currentVideo._id,
+                        setDisableWatchLater
+                      )
+                    : addVideoToWatchLaterVideos(
+                        e,
+                        currentVideo,
+                        setDisableWatchLater
+                      )
+                }
+              />
               <label htmlFor="watchLater" className="checkbox-label">
                 Watch Later
               </label>

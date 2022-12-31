@@ -7,3 +7,4 @@ export {
   removeVideoFromPlaylistInServer,
   deletePlaylistInServer,
 } from "./playlistService";
+export { getAllVideosInHistoryFromServer } from "./videoService.js";

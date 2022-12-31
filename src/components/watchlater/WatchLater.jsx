@@ -14,7 +14,7 @@ function WatchLater() {
 
         <div className="flex-row-center">
           <div className="videos-container">
-            {state.videos.map((video) => (
+            {state.watchLater.map((video) => (
               <CommonVideocard
                 video={video}
                 playlistCategory="watchLater"

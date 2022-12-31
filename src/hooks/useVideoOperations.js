@@ -1,6 +1,5 @@
 import { useAuth, useData } from "../contexts";
 import { useNavigate } from "react-router-dom";
-import { getAllVideosInHistoryFromServer } from "../services/index.js";
 import {
   getAllVideosInHistoryFromServer,
   addVideoToHistoryInServer,
@@ -12,7 +11,7 @@ import {
   getWatchLaterVideosFromServer,
   addVideoToWatchLaterVideosInServer,
   deleteVideoFromWatchLaterVideosInServer,
-} from "../services";
+} from "../services/index.js";
 
 function useVideoOperations() {
   const { authToken, setAuthToken, setAuthUser } = useAuth();
@@ -25,6 +24,7 @@ function useVideoOperations() {
     setAuthToken("");
     setAuthUser(null);
     navigate("/login");
+    setPlaylistModal(false);
   }
 
   const getAllVideosInHistory = async () => {

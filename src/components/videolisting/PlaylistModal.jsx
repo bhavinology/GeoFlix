@@ -1,10 +1,13 @@
 import "./playlistModal.css";
 import { useData, useAuth } from "../../contexts/index";
-import { usePlaylistOperations, useVideoOperations } from "../../hooks/index";
+import {
+  usePlaylistOperations,
+  useVideoOperations,
+} from "../../hooks/index.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+// import { faL } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 
 function PlaylistModal() {

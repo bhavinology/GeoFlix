@@ -9,7 +9,7 @@ import ProfileDetail from "./components/profile/ProfileDetail";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { useAuth } from "./contexts";
+
 import Playlists from "./components/playlists/Playlists";
 import PlaylistModal from "./components/videolisting/PlaylistModal";
 import SinglePlaylist from "./components/playlists/SinglePlaylist";
@@ -22,8 +22,6 @@ import History from "./components/history/History";
 // import Footer from "./components/shared/Footer";
 
 function App() {
-  const { authToken } = useAuth();
-
   return (
     <div className="App pagewrapper">
       <Navigation />

@@ -1,0 +1,68 @@
+.flex-row-justify-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Video content styles */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.video-content {
+  width: 70%;
+  box-sizing: border-box;
+  padding-right: 1rem;
+}
+
+/* Video container styles */
+
+.single-video-container {
+  height: 22rem;
+  width: 95%;
+  margin: 1rem;
+}
+.react-player {
+  height: 30rem;
+  width: 100%;
+  position: unset;
+}
+
+/* Video Description styles */
+
+.video-description {
+  padding-left: 1rem;
+}
+.hashtag {
+  font-weight: normal;
+  font-size: 14px;
+}
+.add-note-container {
+  display: flex;
+  flex-direction: column;
+  height: 25rem;
+  margin: 1rem;
+  overflow-y: auto;
+  padding: 1rem;
+  row-gap: 10px;
+  width: 20rem;
+}
+
+/* Media queries for Responsiveness */
+
+@media only screen and (max-width: 1024px) {
+  .video-and-notes {
+    flex-direction: column;
+  }
+
+  .video-content {
+    width: 100%;
+  }
+
+  .add-note-container {
+    max-width: 50rem;
+    width: 100%;
+    height: unset;
+    margin: unset;
+  }
+}

@@ -74,4 +74,125 @@ function useVideoOperations() {
       setDisable(false);
     }
   };
+
+  const getAllLikedVideos = async () => {
+    try {
+      const response = await getAllLikedVideosFromServer(authToken);
+      dispatch({
+        type: "SET_LIKED_VIDEOS",
+        payload: { likes: response.likes },
+      });
+    } catch (e) {
+      resetFunction();
+    }
+  };
+
+  const addVideoToLikedVideos = async (video, setDisable) => {
+    setDisable(true);
+    try {
+      const response = await addVideoToLikedVideosInServer(authToken, video);
+      dispatch({
+        type: "SET_LIKED_VIDEOS",
+        payload: { likes: response.likes },
+      });
+    } catch (e) {
+      resetFunction();
+    } finally {
+      setDisable(false);
+    }
+  };
+
+  const deleteVideoFromLikedVideos = async (e, videoId, setDisable) => {
+    setDisable(true);
+    e.preventDefault();
+    try {
+      const response = await deleteVideoFromLikedVideosInServer(
+        authToken,
+        videoId
+      );
+      dispatch({
+        type: "SET_LIKED_VIDEOS",
+        payload: { likes: response.likes },
+      });
+    } catch (e) {
+      resetFunction();
+      setDisable(false);
+    }
+  };
+
+  const isLiked = (videoId) =>
+    state.likes.find((video) => video._id === videoId);
+
+  const getWatchLaterVideos = async () => {
+    try {
+      const response = await getWatchLaterVideosFromServer(authToken);
+      dispatch({
+        type: "SET_WATCH_LATER",
+        payload: { watchLater: response.watchlater },
+      });
+    } catch (e) {
+      resetFunction();
+    }
+  };
+
+  const addVideoToWatchLaterVideos = async (e, video, setDisable) => {
+    setDisable(true);
+    try {
+      const response = await addVideoToWatchLaterVideosInServer(
+        authToken,
+        video
+      );
+      dispatch({
+        type: "SET_WATCH_LATER",
+        payload: { watchLater: response.watchlater },
+      });
+    } catch (e) {
+      resetFunction();
+    } finally {
+      setDisable(false);
+    }
+  };
+
+  const deleteVideoFromWatchLaterVideos = async (e, videoId, setDisable) => {
+    setDisable && setDisable(true);
+    e.preventDefault();
+    try {
+      const response = await deleteVideoFromWatchLaterVideosInServer(
+        authToken,
+        videoId
+      );
+      dispatch({
+        type: "SET_WATCH_LATER",
+        payload: { watchLater: response.watchlater },
+      });
+    } catch (e) {
+      resetFunction();
+    } finally {
+      setDisable && setDisable(false);
+    }
+  };
+
+  const inWatchLater = (videoId) => {
+    const filteredVideos = state.watchLater.filter(
+      (video) => video._id === videoId
+    );
+    return !(filteredVideos.length === 0);
+  };
+  return {
+    getAllVideosInHistory,
+    addVideoToHistory,
+    deleteVideoFromHistory,
+    deleteAllVideosFromHistory,
+    getAllLikedVideos,
+    addVideoToLikedVideos,
+    deleteVideoFromLikedVideos,
+    isLiked,
+    getWatchLaterVideos,
+    addVideoToWatchLaterVideos,
+    deleteVideoFromWatchLaterVideos,
+    inWatchLater,
+    resetFunction,
+  };
 }
+
+export { useVideoOperations };

@@ -1,7 +1,18 @@
 import { useAuth, useData } from "../contexts";
 import { useNavigate } from "react-router-dom";
 import { getAllVideosInHistoryFromServer } from "../services/index.js";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import {
+  getAllVideosInHistoryFromServer,
+  addVideoToHistoryInServer,
+  deleteAllVideosFromHistoryInServer,
+  deleteVideoFromHistoryInServer,
+  getAllLikedVideosFromServer,
+  addVideoToLikedVideosInServer,
+  deleteVideoFromLikedVideosInServer,
+  getWatchLaterVideosFromServer,
+  addVideoToWatchLaterVideosInServer,
+  deleteVideoFromWatchLaterVideosInServer,
+} from "../services";
 
 function useVideoOperations() {
   const { authToken, setAuthToken, setAuthUser } = useAuth();

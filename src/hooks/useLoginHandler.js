@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth, useData } from "../contexts";
-import { getAllPlaylistsFromServer, postLoginData } from "../services";
+import {
+  getAllPlaylistsFromServer,
+  getAllLikedVideosFromServer,
+  getAllVideosInHistoryFromServer,
+  getWatchLaterVideosFromServer,
+  postLoginData,
+} from "../services";
 
 function useLoginHandler() {
   const { setAuthToken, setAuthUser } = useAuth();
@@ -41,8 +47,23 @@ function useLoginHandler() {
         type: "SET_PLAYLISTS",
         payload: { playlists: response.playlists },
       });
+      response = await getAllVideosInHistoryFromServer(tokenResponse);
+      dispatch({
+        type: "SET_HISTORY",
+        payload: { history: response.history },
+      });
+      response = await getAllLikedVideosFromServer(tokenResponse);
+      dispatch({
+        type: "SET_LIKED_VIDEOS",
+        payload: { likes: response.likes },
+      });
+      response = await getWatchLaterVideosFromServer(tokenResponse);
+      dispatch({
+        type: "SET_WATCH_LATER",
+        payload: { watchLater: response.watchlater },
+      });
 
-      // if (location.state) navigate(location.state?.from?.pathname);
+      // if (location.state) navigate(location.state.from.pathname);
       navigate("/videos");
     } catch (e) {
       console.log("loginHandler: Error in Login", e);

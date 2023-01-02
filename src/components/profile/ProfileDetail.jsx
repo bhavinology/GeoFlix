@@ -14,10 +14,10 @@ function ProfileDetail() {
     toast.success("Logged out successfully");
     setAuthToken("");
     setAuthUser(null);
-    dispatch({
-      type: "SET_PLAYLISTS",
-      payload: { playlists: [] },
-    });
+    dispatch({ type: "SET_PLAYLISTS", payload: { playlists: [] } });
+    dispatch({ type: "SET_LIKED_VIDEOS", payload: { likes: [] } });
+    dispatch({ type: "SET_WATCH_LATER", payload: { watchLater: [] } });
+    dispatch({ type: "SET_HISTORY", payload: { history: [] } });
     navigate("/videos");
   }
   return (

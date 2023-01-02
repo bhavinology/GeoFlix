@@ -7,6 +7,7 @@ import { faClock, faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 import { toast } from "react-toastify";
 import { useData, useAuth } from "../../contexts/index";
 import { useVideoOperations } from "../../hooks/index";
+import { updateViewCount } from "../../services/dataService";
 import "./singlevideo.css";
 
 function SingleVideo() {
@@ -49,6 +50,17 @@ function SingleVideo() {
     toast.info("Link Copied");
   };
 
+  const increaseViewCount = async (video) => {
+    const response = await updateViewCount(video._id);
+    const updatedVideoList = state.videos.map((eachVideo) =>
+      eachVideo._id === video._id ? response.video : eachVideo
+    );
+    dispatch({
+      type: "SET_VIDEOS",
+      payload: { videos: updatedVideoList },
+    });
+  };
+
   return (
     <>
       {video && (
@@ -62,12 +74,16 @@ function SingleVideo() {
                 height="100%"
                 onStart={() => {
                   if (authToken) addVideoToHistory(video);
+                  increaseViewCount(video);
                 }}
               />
             </div>
             <div className="video-description">
               <div className="keyword hashtag">{`#${video.category}`}</div>
               <div className="video-title">{video.title}</div>
+              <div className="category-chip chip">
+                Views : {video?.viewCount}
+              </div>
               <div className="video-buttons">
                 <span
                   className="chip category-chip"

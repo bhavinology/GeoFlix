@@ -67,6 +67,23 @@
   font-size: 1.5rem;
   padding: 0 10px;
 }
+.flex-row-justify-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-link-error {
+  margin: unset;
+  color: var(--error-color);
+  font-weight: normal;
+  border-bottom: 1px solid var(--error-color);
+  padding: unset;
+  border-radius: unset;
+  position: fixed;
+  right: 0;
+  top: 1;
+  margin-right: 1.5rem;
+}
 @media only screen and (max-width: 640px) {
   .videos-container {
     display: flex;

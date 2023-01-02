@@ -20,5 +20,13 @@ const getCategories = async () => {
     console.error("getCategories : Error in fetching categories", e);
   }
 };
-
-export { getVideos, getCategories };
+const updateViewCount = async (videoId) => {
+  try {
+    const response = await axios.get(`/api/videos/${videoId}/viewcount`);
+    if (response.status === 200) return response.data;
+    else throw new Error();
+  } catch (e) {
+    console.error("updateViewCount : Error in updating view count", e);
+  }
+};
+export { getVideos, getCategories, updateViewCount };

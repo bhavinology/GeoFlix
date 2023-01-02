@@ -63,8 +63,8 @@ function useLoginHandler() {
         payload: { watchLater: response.watchlater },
       });
 
-      // if (location.state) navigate(location.state.from.pathname);
-      navigate("/videos");
+      if (location.state) navigate(location.state.from.pathname);
+      else navigate("/videos");
     } catch (e) {
       console.log("loginHandler: Error in Login", e);
       setErrorData(true);

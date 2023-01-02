@@ -9,7 +9,7 @@ function LoginForm() {
   const [errorData, setErrorData] = useState(false);
   const [showpassword, setShowPassword] = useState(false);
   const [disableLogin, setDisableLogin] = useState(false);
-  const { location } = useLocation();
+  const location = useLocation();
   const { loginHandler } = useLoginHandler();
 
   return (
@@ -108,7 +108,11 @@ function LoginForm() {
         )}
         <div className="flex-row-center">
           <span>Don't have an account?</span>
-          <Link to="/signup" className="btn-link btn-link-primary">
+          <Link
+            to="/signup"
+            className="btn-link btn-link-primary"
+            state={location.state}
+          >
             Create one
           </Link>
         </div>

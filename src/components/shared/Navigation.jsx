@@ -36,7 +36,7 @@ function Navigation() {
         <div
           className="profile-icon"
           onClick={() =>
-            authToken ? navigate("/profile") : navigate("/login")
+            authToken ? navigate("/account") : navigate("/login")
           }
         >
           <FontAwesomeIcon icon="user" className="search-icon" />

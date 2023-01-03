@@ -123,6 +123,12 @@
   font-size: 8px;
 }
 
+/* Mobile Profile */
+
+.mobile-nav-options {
+  width: 100%;
+}
+
 @media only screen and (max-width: 640px) {
   .sidebar {
     display: none;

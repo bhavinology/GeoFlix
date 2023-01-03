@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth, useData } from "../../contexts";
+import { Sidebar } from "../shared/Sidebar";
 import "./profile.css";
 
 function ProfileDetail() {
@@ -21,27 +22,30 @@ function ProfileDetail() {
     navigate("/videos");
   }
   return (
-    <div className="flex-row-center">
-      <div className="logout-container flex-column-center">
-        <h4 className="heading4">Account Details</h4>
-        <div className="flex-row-center profile-detail">
-          {" "}
-          <div className="flex-column-center profile-column">
-            <p>Name</p>
-            <p>Email</p>
+    <div className="middle-content">
+      <Sidebar />
+      <div className="flex-row-center">
+        <div className="logout-container flex-column-center">
+          <h4 className="heading4">Account Details</h4>
+          <div className="flex-row-center profile-detail">
+            {" "}
+            <div className="flex-column-center profile-column">
+              <p>Name</p>
+              <p>Email</p>
+            </div>
+            <div className="flex-column-center profile-column">
+              <p>{`${authUser.firstName} ${authUser.lastName}`}</p>
+              <p>{`${authUser.email}`}</p>
+            </div>
           </div>
-          <div className="flex-column-center profile-column">
-            <p>{`${authUser.firstName} ${authUser.lastName}`}</p>
-            <p>{`${authUser.email}`}</p>
-          </div>
-        </div>
 
-        <button
-          className="btn btn-outline-primary logout-btn"
-          onClick={logoutHandler}
-        >
-          Logout
-        </button>
+          <button
+            className="btn btn-outline-primary logout-btn"
+            onClick={logoutHandler}
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -19,6 +19,7 @@ import { PrivateRoute } from "./components/authentication/PrivateRoutes";
 import History from "./components/history/History";
 import SingleVideo from "./components/single-video/SingleVideo";
 import { LandingPage } from "./components/landing page/LandingPage";
+import { MobileProfile } from "./components/shared/MobileProfile";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -29,65 +30,71 @@ function App() {
       <Navigation />
       <PlaylistModal />
       <ToastContainer theme="dark" position="bottom-right" autoClose={500} />
-      <div className="middle-content">
-        {/* <Sidebar /> */}
 
-        <Routes>
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/videos" element={<Videos />} />
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/videos/:videoId" element={<SingleVideo />} />
-          <Route
-            path="/account"
-            element={
-              <PrivateRoute>
-                <ProfileDetail />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/playlists"
-            element={
-              <PrivateRoute>
-                <Playlists />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/playlists/:playlistId"
-            element={
-              <PrivateRoute>
-                <SinglePlaylist />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/history"
-            element={
-              <PrivateRoute>
-                <History />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/liked"
-            element={
-              <PrivateRoute>
-                <LikedVideos />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/watchlater"
-            element={
-              <PrivateRoute>
-                <WatchLater />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/videos" element={<Videos />} />
+        <Route path="/videos/:videoId" element={<SingleVideo />} />
+        <Route
+          path="/account"
+          element={
+            <PrivateRoute>
+              <ProfileDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlists"
+          element={
+            <PrivateRoute>
+              <Playlists />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlists/:playlistId"
+          element={
+            <PrivateRoute>
+              <SinglePlaylist />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <PrivateRoute>
+              <History />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/liked"
+          element={
+            <PrivateRoute>
+              <LikedVideos />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/watchlater"
+          element={
+            <PrivateRoute>
+              <WatchLater />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <MobileProfile />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+
       <Footer />
     </div>
   );

@@ -6,10 +6,12 @@ import {
   removeVideoFromPlaylistInServer,
   deletePlaylistInServer,
 } from "../services/index";
+import { useVideoOperations } from "./useVideoOperations";
 
 function usePlaylistOperations() {
   const { state, dispatch, currentVideo } = useData();
   const { authToken } = useAuth();
+  const { resetFunction } = useVideoOperations();
 
   const getAllPlaylists = async () => {
     try {
@@ -19,7 +21,8 @@ function usePlaylistOperations() {
         payload: { playlists: response.playlists },
       });
     } catch (e) {
-      console.log(e);
+      resetFunction();
+      // console.log(e);
     }
   };
 

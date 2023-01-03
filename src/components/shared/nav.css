@@ -103,7 +103,7 @@
   width: 100%;
   position: fixed;
   bottom: 0;
-  z-index: 6;
+  z-index: 7;
 }
 .mobile-nav-item {
   display: flex;

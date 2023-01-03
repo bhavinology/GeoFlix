@@ -8,9 +8,10 @@
 .category-chip {
   background-color: var(--hover-color);
   height: 2rem;
-  padding: 1rem;
+  padding: 1.5rem;
   cursor: pointer;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .active-category {

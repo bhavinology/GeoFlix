@@ -82,12 +82,12 @@ function Sidebar() {
           <span>Explore</span>
         </Link>
         <Link to="/playlists" className="mobile-nav-item">
-          <FontAwesomeIcon icon="clapperboard" className="bottom-icon" />
+          <RiPlayListAddFill />
           <span>Playlists</span>
         </Link>
-        <Link to="/uploadvideo" className="mobile-nav-item">
-          <FontAwesomeIcon icon="upload" className="bottom-icon" />
-          <span>Upload Video</span>
+        <Link to="/liked" className="mobile-nav-item">
+          <FontAwesomeIcon icon="thumbs-up" className="bottom-icon" />
+          <span>Liked</span>
         </Link>
         <Link
           to={authToken ? "/profile" : "/login"}

@@ -23,6 +23,7 @@ const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [playlistModal, setPlaylistModal] = useState(false);
   const [currentVideo, setCurrentVideo] = useState({});
+  const [searchBarText, setSearchBarText] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -49,6 +50,8 @@ const DataProvider = ({ children }) => {
         setPlaylistModal,
         currentVideo,
         setCurrentVideo,
+        searchBarText,
+        setSearchBarText,
       }}
     >
       {children}

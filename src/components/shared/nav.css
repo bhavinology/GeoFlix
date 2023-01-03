@@ -134,9 +134,9 @@
     display: none;
   }
   .brand-name,
-  .profile-icon {
+  /* .profile-icon {
     display: none;
-  }
+  } */
   .searchbar-container {
     width: 75%;
   }

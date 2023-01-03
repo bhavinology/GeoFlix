@@ -7,6 +7,7 @@ import "./nav.css";
 function Navigation() {
   const navigate = useNavigate();
   const { authToken } = useAuth();
+
   return (
     <nav className="nav-container">
       <div className="brand">
@@ -19,7 +20,7 @@ function Navigation() {
           GeoFlix
         </Link>
       </div>
-      <form className="searchbar-container">
+      {/* <form className="searchbar-container">
         <input
           type="search"
           placeholder="search videos here"
@@ -28,7 +29,7 @@ function Navigation() {
         <button className="btn-no-decoration text-white" type="submit">
           <FontAwesomeIcon icon="magnifying-glass" className="search-icon" />
         </button>
-      </form>
+      </form> */}
       <div className="flex-row-center nav-right-icons">
         <div
           className="profile-icon"

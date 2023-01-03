@@ -1,7 +1,6 @@
 import "./App.css";
 import Navigation from "./components/shared/Navigation";
 import Videos from "./components/videolisting/Videos";
-import { Sidebar } from "./components/shared/Sidebar.jsx";
 import Footer from "./components/shared/Footer";
 import LoginForm from "./components/authentication/LoginForm";
 import SignupForm from "./components/authentication/SignupForm";
@@ -20,9 +19,6 @@ import History from "./components/history/History";
 import SingleVideo from "./components/single-video/SingleVideo";
 import { LandingPage } from "./components/landing page/LandingPage";
 import { MobileProfile } from "./components/shared/MobileProfile";
-// import { Videos } from "./components/videolisting/Videos";
-
-// import Footer from "./components/shared/Footer";
 
 function App() {
   return (

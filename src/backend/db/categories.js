@@ -31,6 +31,6 @@ export const categories = [
     categoryName: "Strategic-Groups",
     imgUrl:
       "https://res.cloudinary.com/dpcteokzf/image/upload/v1672726557/geoflix/i2u2_p65yl9.webp",
-    title: "Support makes you Stronger",
+    title: "Strategic Groups",
   },
 ];

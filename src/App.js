@@ -18,6 +18,7 @@ import LikedVideos from "./components/likedvideos/LikedVideos";
 import { PrivateRoute } from "./components/authentication/PrivateRoutes";
 import History from "./components/history/History";
 import SingleVideo from "./components/single-video/SingleVideo";
+import { LandingPage } from "./components/landing page/LandingPage";
 // import { Videos } from "./components/videolisting/Videos";
 
 // import Footer from "./components/shared/Footer";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/videos" element={<Videos />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/videos/:videoId" element={<SingleVideo />} />
           <Route
             path="/account"

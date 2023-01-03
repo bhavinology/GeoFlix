@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useData, useAuth } from "../../contexts/index";
 import { useVideoOperations } from "../../hooks/index";
 import { updateViewCount } from "../../services/dataService";
+import { Sidebar } from "../shared/Sidebar";
 import "./singlevideo.css";
 
 function SingleVideo() {
@@ -63,78 +64,84 @@ function SingleVideo() {
 
   return (
     <>
-      {video && (
-        <div className="flex-row-justify-space-around margin-container video-and-notes">
-          <div className="video-content flex-column">
-            <div className="single-video-container">
-              <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${video._id}`}
-                controls
-                width="100%"
-                height="100%"
-                onStart={() => {
-                  if (authToken) addVideoToHistory(video);
-                  increaseViewCount(video);
-                }}
-              />
-            </div>
-            <div className="video-description">
-              <div className="keyword hashtag">{`#${video.category}`}</div>
-              <div className="video-title">{video.title}</div>
-              <div className="category-chip chip">
-                Views : {video?.viewCount}
+      <div className="middle-content">
+        <Sidebar />
+        {video && (
+          <div className="flex-row-justify-space-around margin-container video-and-notes">
+            <div className="video-content flex-column">
+              <div className="single-video-container">
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${video._id}`}
+                  controls
+                  width="100%"
+                  height="100%"
+                  onStart={() => {
+                    if (authToken) addVideoToHistory(video);
+                    increaseViewCount(video);
+                  }}
+                />
               </div>
-              <div className="video-buttons">
-                <span
-                  className="chip category-chip"
-                  style={{ pointerEvents: disableLike ? "none" : "auto" }}
-                  onClick={(e) => !disableLike && likeHandler(e, video)}
-                >
-                  {isLiked(video?._id) ? (
-                    <FontAwesomeIcon
-                      icon="thumbs-up"
-                      className="p-right-5 keyword"
-                    />
-                  ) : (
-                    <FontAwesomeIcon icon={faThumbsUp} className="p-right-5" />
-                  )}
-                  Like
-                </span>
-                <span
-                  className="chip category-chip"
-                  onClick={(e) =>
-                    !disableWatchLater && watchLaterHandler(e, video)
-                  }
-                >
-                  {inWatchLater(video?._id) ? (
-                    <FontAwesomeIcon
-                      icon="clock"
-                      className="p-right-5 keyword"
-                    />
-                  ) : (
-                    <FontAwesomeIcon icon={faClock} className="p-right-5" />
-                  )}
-                  Watch Later
-                </span>
-                <span
-                  className="chip category-chip icon-chip"
-                  onClick={() => setPlaylistModal(true)}
-                >
-                  <div className="icon-chip">
-                    <RiPlayListAddFill />
-                  </div>
-                  <span className="p-left-5">Save</span>
-                </span>
-                <span className="chip category-chip" onClick={copyHandler}>
-                  <FontAwesomeIcon icon="share-alt" className="p-right-5" />
-                  Copy Link
-                </span>
+              <div className="video-description">
+                <div className="keyword hashtag">{`#${video.category}`}</div>
+                <div className="video-title">{video.title}</div>
+                <div className="category-chip chip">
+                  Views : {video?.viewCount}
+                </div>
+                <div className="video-buttons">
+                  <span
+                    className="chip category-chip"
+                    style={{ pointerEvents: disableLike ? "none" : "auto" }}
+                    onClick={(e) => !disableLike && likeHandler(e, video)}
+                  >
+                    {isLiked(video?._id) ? (
+                      <FontAwesomeIcon
+                        icon="thumbs-up"
+                        className="p-right-5 keyword"
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={faThumbsUp}
+                        className="p-right-5"
+                      />
+                    )}
+                    Like
+                  </span>
+                  <span
+                    className="chip category-chip"
+                    onClick={(e) =>
+                      !disableWatchLater && watchLaterHandler(e, video)
+                    }
+                  >
+                    {inWatchLater(video?._id) ? (
+                      <FontAwesomeIcon
+                        icon="clock"
+                        className="p-right-5 keyword"
+                      />
+                    ) : (
+                      <FontAwesomeIcon icon={faClock} className="p-right-5" />
+                    )}
+                    Watch Later
+                  </span>
+                  <span
+                    className="chip category-chip icon-chip"
+                    onClick={() => setPlaylistModal(true)}
+                  >
+                    <div className="icon-chip">
+                      <RiPlayListAddFill />
+                    </div>
+                    <span className="p-left-5">Save</span>
+                  </span>
+                  <span className="chip category-chip" onClick={copyHandler}>
+                    <FontAwesomeIcon icon="share-alt" className="p-right-5" />
+                    Copy Link
+                  </span>
+                </div>
               </div>
             </div>
+            <div className="add-note-container"></div>
           </div>
-          <div className="add-note-container"></div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 }

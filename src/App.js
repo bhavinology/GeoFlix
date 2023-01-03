@@ -30,7 +30,7 @@ function App() {
       <PlaylistModal />
       <ToastContainer theme="dark" position="bottom-right" autoClose={500} />
       <div className="middle-content">
-        <Sidebar />
+        {/* <Sidebar /> */}
 
         <Routes>
           <Route path="/login" element={<LoginForm />} />

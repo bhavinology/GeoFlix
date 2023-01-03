@@ -66,15 +66,6 @@ function Sidebar() {
           <FontAwesomeIcon icon="clock" className="sidebar-icon" />
           <span>Watch Later</span>
         </NavLink>
-        <NavLink
-          to="/uploadvideo"
-          className={({ isActive }) =>
-            isActive ? "sidebar-item sidebar-active" : "sidebar-item"
-          }
-        >
-          <FontAwesomeIcon icon="upload" className="sidebar-icon" />
-          <span>Upload Video</span>
-        </NavLink>
       </aside>
       <div className="mobile-bottom-nav">
         <Link to="/videos" className="mobile-nav-item">

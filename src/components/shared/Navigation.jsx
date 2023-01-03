@@ -30,9 +30,6 @@ function Navigation() {
         </button>
       </form>
       <div className="flex-row-center nav-right-icons">
-        <button className="btn-no-decoration curser-pointer text-white">
-          <FontAwesomeIcon icon="moon" className="search-icon" />
-        </button>
         <div
           className="profile-icon"
           onClick={() =>

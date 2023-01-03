@@ -8,7 +8,7 @@
 .category-chip {
   background-color: var(--hover-color);
   height: 2rem;
-  padding: 1.5rem;
+  padding: 1.4rem;
   cursor: pointer;
   letter-spacing: 0.5px;
   text-align: center;
